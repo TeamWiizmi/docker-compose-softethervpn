@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  softethervpn:
+    image: siomiz/softethervpn
+    container_name: softethervpn
+    restart: always
+    network_mode: "bridge"
+    ports:
+      - 500:500/udp
+      - 4500:4500/udp
+      - 1701:1701/tcp
+      - 1194:1194/udp
+    cap_add:
+      - NET_ADMIN
+    env_file: .env.production
